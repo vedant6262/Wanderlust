@@ -1,0 +1,73 @@
+  <% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Create a new listing</h3>
+   <form method="post"
+      action="/listings"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data">
+
+    <div class="mb-3">
+    <label for="title" class="form-lable">Title</label>
+    <input type="text" 
+    name="listing[title]"
+    placeholder="Enter title" 
+    class="form-control"
+    required>
+    
+      <div class="valid-feedback">Title looks good</div>
+      <div class="invalid-feedback">Please Enter the title</div>
+    </div>
+
+
+    <div class="mb-3">
+    <label for="description" class="form-lable">Description</label>
+    <textarea class="form-control" name="listing[description]" id="Enter description" required></textarea>
+        <div class="invalid-feedback">Please enter a description</div>
+    </div>
+
+<div class="mb-3">
+    <label for="image" class="form-lable">Upload Listing Image</label>
+<input class="form-control" type="file"
+       name="listing[image]" required >
+</div>
+
+
+ <div class="row">
+    <div class="mb-3 col-md-4 ">
+        <label for="price" class="form-lable">Price</label>
+     <input class="form-control" name="listing[price]" placeholder="1200" required>
+     <div class="invalid-feedback">Please enter a valid price</div>
+    </div>
+   
+
+     <div class="mb-3  col-md-8">
+    <label for="country" class="form-lable">Country</label>
+     <input  class="form-control" type="text" name="listing[country]" placeholder="India" required>
+      <div class="invalid-feedback">Please enter a Country name</div>
+    </div>
+   </div>
+
+     <div class="mb-3">
+        <label for="location" class="form-lable">location</label>
+     <input  class="form-control" type="text" name="listing[location]" placeholder="Jaipur,Rajasthan" required>
+       <div class="invalid-feedback">Please enter a location</div>
+   </div>
+
+   <div class="mb-3">
+  <label class="form-label">Category</label>
+  <select class="form-select" name="listing[category]" required>
+    <option value="" disabled selected>Select category</option>
+    <% for (let cat of categories) { %>
+      <option value="<%= cat %>"><%= cat %></option>
+    <% } %>
+  </select>
+</div>
+
+    <button class="btn btn-dark add-btn mt-3">ADD</button>
+    <br>
+    </form>
+</div>
+</div>
